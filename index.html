@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Artease Bakery - Premium artisan sourdough, pastries, and morning sets for busy professionals.">
+  <meta name="theme-color" content="#2d2416">
+  <title>Artease Bakery - Artisan Sourdough & Premium Pastries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #faf8f6;
+      color: #2d2416;
+      line-height: 1.6;
+    }
+
+    :root {
+      --color-primary: #2d2416;
+      --color-accent: #c9a961;
+      --color-light: #faf8f6;
+      --color-border: #e8e2d9;
+      --color-success: #4a9d6f;
+      --color-error: #d64545;
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --radius: 8px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-inline: 16px;
+      }
+    }
+
+    /* Navigation */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #faf8f6 0%, #f3ede3 100%);
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #5a5047;
+      margin-bottom: var(--space-lg);
+      max-width: 480px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero-cta:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg, #e8dcc8 0%, #d4c4aa 100%);
+      border-radius: 12px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: var(--space-lg) 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .hero-content h1 {
+        font-size: 40px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        aspect-ratio: auto;
+        min-height: 300px;
+      }
+    }
+
+    /* Section Styling */
+    section {
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Products Section */
+    .products-intro {
+      font-size: 18px;
+      color: #5a5047;
+      margin-bottom: var(--space-lg);
+      max-width: 700px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(45, 36, 22, 0.08);
+    }
+
+    .product-image {
+      background: linear-gradient(135deg, #e8dcc8 0%, #d4c4aa 100%);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-content {
+      padding: var(--space-lg);
+    }
+
+    .product-content h3 {
+      margin-bottom: var(--space-md);
+    }
+
+    .product-content p {
+      font-size: 15px;
+      color: #5a5047;
+      margin-bottom: var(--space-md);
+    }
+
+    .product-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+      font-size: 14px;
+      color: #5a5047;
+    }
+
+    .product-feature strong {
+      color: var(--color-primary);
+      min-width: 80px;
+    }
+
+    /* Benefits Section */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .benefit-card {
+      background: white;
+      padding: var(--space-lg);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 48px;
+      margin-bottom: var(--space-md);
+    }
+
+    .benefit-card h3 {
+      margin-bottom: var(--space-md);
+      text-align: center;
+    }
+
+    .benefit-card p {
+      font-size: 15px;
+      color: #5a5047;
+      text-align: center;
+    }
+
+    /* Testimonials Section */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: var(--space-lg);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+    }
+
+    .testimonial-stars {
+      color: var(--color-accent);
+      font-size: 14px;
+      margin-bottom: var(--space-md);
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: #5a5047;
+      margin-bottom: var(--space-md);
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 14px;
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--color-accent);
+    }
+
+    /* Forms Section */
+    #interest {
+      background: linear-gradient(135deg, #2d2416 0%, #3d3221 100%);
+      color: white;
+    }
+
+    #interest h2 {
+      color: white;
+    }
+
+    .interest-intro {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .forms-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .form-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: var(--space-lg);
+      border-radius: 12px;
+    }
+
+    .form-wrapper h3 {
+      color: white;
+      margin-bottom: var(--space-md);
+      font-size: 20px;
+    }
+
+    .form-description {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: var(--space-lg);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.95);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    input {
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    button[type="submit"] {
+      padding: 14px 28px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    button[type="submit"]:hover {
+      background: #dab979;
+      transform: translateY(-2px);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+
+    .status-message {
+      min-height: 40px;
+      padding: var(--space-md);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+      margin-top: var(--space-md);
+    }
+
+    .status-message.show {
+      display: block;
+    }
+
+    .status-message.success {
+      background: rgba(74, 157, 111, 0.2);
+      color: #a8e6cc;
+      border: 1px solid rgba(74, 157, 111, 0.3);
+    }
+
+    .status-message.error {
+      background: rgba(214, 69, 69, 0.2);
+      color: #ff9999;
+      border: 1px solid rgba(214, 69, 69, 0.3);
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      margin-bottom: var(--space-md);
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      background: white;
+      border: none;
+      padding: var(--space-lg);
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--color-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .faq-trigger:hover {
+      background: #f9f7f4;
+    }
+
+    .faq-trigger.active {
+      background: var(--color-light);
+      color: var(--color-accent);
+    }
+
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-trigger.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: #faf8f6;
+    }
+
+    .faq-content.show {
+      max-height: 500px;
+    }
+
+    .faq-text {
+      padding: 0 var(--space-lg) var(--space-lg);
+      font-size: 15px;
+      color: #5a5047;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-primary);
+      color: white;
+      padding: var(--space-lg) 0;
+      margin-top: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: var(--space-md);
+      font-size: 16px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-section p, .footer-section a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      line-height: 1.8;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--color-accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: var(--space-lg);
+      text-align: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      section h2 {
+        font-size: 32px;
+      }
+
+      .products-grid, .benefits-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .forms-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations */
+    @media (prefers-reduced-motion: no-preference) {
+      .product-card, .benefit-card, .testimonial-card {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">Artease Bakery</a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#benefits">Why Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#interest">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Artisan Quality, Perfect Timing</h1>
+          <p>Premium sourdough, freshly baked pastries, and morning grab-and-go sets crafted for busy professionals who refuse to compromise on taste.</p>
+          <a href="#interest" class="hero-cta">Register My Interest</a>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="breadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#d4c4aa;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#c9a961;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="100" cy="100" rx="80" ry="85" fill="url(#breadGrad)" />
+            <path d="M 60 120 Q 100 110 140 120" stroke="#2d2416" stroke-width="3" fill="none" stroke-linecap="round" />
+            <path d="M 65 100 Q 100 85 135 100" stroke="#2d2416" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" />
+            <circle cx="85" cy="95" r="4" fill="#2d2416" />
+            <circle cx="115" cy="100" r="4" fill="#2d2416" />
+            <circle cx="100" cy="110" r="4" fill="#2d2416" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <div class="container">
+      <h2>Crafted for Every Moment</h2>
+      <p class="products-intro">From artisan sourdough to ready-to-share morning sets, each product is baked fresh and designed for your lifestyle.</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://res.cloudinary.com/wynanqmu/image/upload/v1785029584/byteforce/uploads/t9vc1l4xemutajhcqgzx.png" alt="Artisan Sourdough">
+          </div>
+          <div class="product-content">
+            <h3>Artisan Sourdough</h3>
+            <p>Small-batch, naturally fermented sourdough with a crispy crust and complex flavor profile.</p>
+            <div class="product-feature">
+              <strong>Fresh:</strong> Baked daily
+            </div>
+            <div class="product-feature">
+              <strong>Texture:</strong> Crusty outside, tender crumb
+            </div>
+            <div class="product-feature">
+              <strong>Perfect for:</strong> Breakfast, lunch, entertaining
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🥐</div>
+          <div class="product-content">
+            <h3>Premium Pastries</h3>
+            <p>Handcrafted croissants, pain au chocolat, and seasonal pastries using butter and quality ingredients.</p>
+            <div class="product-feature">
+              <strong>Varieties:</strong> Classic & seasonal
+            </div>
+            <div class="product-feature">
+              <strong>Quality:</strong> Laminated perfection
+            </div>
+            <div class="product-feature">
+              <strong>Best time:</strong> Morning or afternoon
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">📦</div>
+          <div class="product-content">
+            <h3>Morning Grab-and-Go Sets</h3>
+            <p>Convenient curated sets: fresh pastry, coffee pairing suggestion, and fruit. Perfect for weekday professionals.</p>
+            <div class="product-feature">
+              <strong>Timing:</strong> Ready when you need it
+            </div>
+            <div class="product-feature">
+              <strong>Includes:</strong> Pastry, pairing guide, fruit
+            </div>
+            <div class="product-feature">
+              <strong>Ideal for:</strong> Busy weekday mornings
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits">
+    <div class="container">
+      <h2>Why Artease Bakery</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⭐</div>
+          <h3>Premium Taste</h3>
+          <p>Every bite reflects our commitment to artisan quality—using natural fermentation and finest ingredients.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Speed Without Compromise</h3>
+          <p>Fresh sourdough and pastries available daily, with grab-and-go sets ready for your schedule.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Reliability You Can Count On</h3>
+          <p>Consistent quality, freshness, and availability—whether it's your Monday morning or weekend celebration cake.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌟</div>
+          <h3>Curated Experience</h3>
+          <p>Thoughtfully designed offerings for professionals and families who value both convenience and exceptional flavor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>What Our Customers Love</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The morning grab-and-go set has transformed my weekday routine. It's fresh, convenient, and genuinely delicious. I no longer skip breakfast."</p>
+          <div class="testimonial-author">Clara M.</div>
+          <div class="testimonial-role">Corporate Professional</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The sourdough is Instagram-worthy and tastes even better than it looks. Our team meetings now start with Artease pastries. Highly recommend."</p>
+          <div class="testimonial-author">Sam K.</div>
+          <div class="testimonial-role">Startup Founder</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"We trust Artease for our family gatherings. The seasonal cakes are beautiful and taste incredible. Perfect every time."</p>
+          <div class="testimonial-author">Fiona R.</div>
+          <div class="testimonial-role">Family-Oriented Customer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest Section -->
+  <section id="interest">
+    <div class="container">
+      <h2>Ready for Premium Artisan Baking?</h2>
+      <p class="interest-intro">Join our community of professionals and families who value exceptional taste and reliable quality. Register to receive product updates, seasonal offerings, and early notification of new collections.</p>
+      
+      <div class="forms-container">
+        <!-- Expression of Interest Form -->
+        <div class="form-wrapper">
+          <h3>Register My Interest</h3>
+          <p class="form-description">Provide your details to stay connected with new products and updates from Artease Bakery.</p>
+          <form id="byteforce-registration-form" action="" method="POST">
+            <div>
+              <label for="byteforce-name">Your Name</label>
+              <input 
+                type="text" 
+                id="byteforce-name" 
+                name="name" 
+                placeholder="e.g., Clara Mitchell" 
+                required 
+                autocomplete="name"
+              >
+            </div>
+            <div>
+              <label for="byteforce-email">Email Address</label>
+              <input 
+                type="email" 
+                id="byteforce-email" 
+                name="email" 
+                placeholder="e.g., clara@example.com" 
+                required 
+                autocomplete="email"
+              >
+            </div>
+            <button type="submit">Register My Interest</button>
+            <div id="byteforce-registration-status" class="status-message"></div>
+          </form>
+        </div>
+
+        <!-- Update Email Form -->
+        <div class="form-wrapper">
+          <h3>Update Email</h3>
+          <p class="form-description">Already registered? Update your email address to stay connected with the latest from Artease Bakery.</p>
+          <form id="byteforce-update-email-form" action="" method="POST">
+            <div>
+              <label for="byteforce-old-email">Previous Email</label>
+              <input 
+                type="email" 
+                id="byteforce-old-email" 
+                name="old_email" 
+                placeholder="e.g., old@example.com" 
+                required 
+                autocomplete="email"
+              >
+            </div>
+            <div>
+              <label for="byteforce-new-email">New Email</label>
+              <input 
+                type="email" 
+                id="byteforce-new-email" 
+                name="new_email" 
+                placeholder="e.g., new@example.com" 
+                required 
+                autocomplete="email"
+              >
+            </div>
+            <button type="submit">Update Email</button>
+            <div id="byteforce-update-email-status" class="status-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Are your products made fresh daily?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-text">Yes! Our sourdough and pastries are baked fresh daily using traditional methods and quality ingredients. This ensures you always get the best taste and texture.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>What makes your sourdough special?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-text">Our sourdough is naturally fermented using a long-standing starter, creating complex flavors and excellent digestibility. Each loaf is hand-shaped and baked to achieve a crispy crust and tender, open crumb structure.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>What's included in the morning grab-and-go sets?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-text">Each set features a fresh pastry of your choice, a coffee pairing suggestion card, and seasonal fresh fruit. It's designed to be convenient, delicious, and satisfying for busy weekday mornings.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Do you create cakes for special occasions?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-content">
+          <div class="faq-text">Yes, we create beautiful seasonal and special-occasion cakes. Contact us with your requirements, and we'll discuss options that match your celebration and preferences.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Artease Bakery</h3>
+          <p>Premium artisan sourdough, pastries, and morning sets for busy professionals who value exceptional taste and reliability.</p>
+          <div class="social-links">
+            <a href="#" title="Instagram" aria-label="Visit our Instagram">📷</a>
+            <a href="#" title="Facebook" aria-label="Visit our Facebook">f</a>
+            <a href="#" title="Twitter" aria-label="Visit our Twitter">𝕏</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#products">Our Products</a><br>
+          <a href="#benefits">Why Choose Us</a><br>
+          <a href="#testimonials">Customer Reviews</a><br>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-section">
+          <h3>Stay Connected</h3>
+          <p>Join our community for product updates, seasonal offerings, and early previews of new collections.</p>
+          <a href="#interest">Register Your Interest</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Artease Bakery. Crafted with care. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const isActive = trigger.classList.contains('active');
+        
+        // Close all other FAQs
+        faqTriggers.forEach(t => {
+          if (t !== trigger) {
+            t.classList.remove('active');
+            t.setAttribute('aria-expanded', 'false');
+            t.nextElementSibling.classList.remove('show');
+          }
+        });
+        
+        // Toggle current FAQ
+        trigger.classList.toggle('active');
+        const isNowActive = trigger.classList.contains('active');
+        trigger.setAttribute('aria-expanded', isNowActive);
+        trigger.nextElementSibling.classList.toggle('show');
+      });
+    });
+
+    // Mobile Navigation Links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('href');
+        if (target && target.startsWith('#')) {
+          const section = document.querySelector(target);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+
+<!-- byteforce-lead-form-injected -->
+<script>
+(function () {
+  var BYTEFORCE_WEBSITE_ID   = "website-9836";
+  var BYTEFORCE_WEBSITE_NAME = "Artease Bakery with a physical shop and online pre-orders";
+  var BYTEFORCE_WEBHOOK_URL  = "https://techtravelthink.app.n8n.cloud/webhook/user-register";
+
+  function findField(form, patterns) {
+    var candidates = form.querySelectorAll('input, textarea');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      var haystack = ((el.name || '') + ' ' + (el.id || '') + ' ' + (el.type || '') + ' ' + (el.placeholder || '')).toLowerCase();
+      for (var j = 0; j < patterns.length; j++) {
+        if (haystack.indexOf(patterns[j]) !== -1) return el;
+      }
+    }
+    return null;
+  }
+
+  function showMessage(form, text, isError) {
+    var el = form.querySelector('.byteforce-form-message');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'byteforce-form-message';
+      el.style.marginTop = '12px';
+      el.style.fontSize = '14px';
+      el.style.fontFamily = 'inherit';
+      form.appendChild(el);
+    }
+    el.textContent = text;
+    el.style.color = isError ? '#dc2626' : '#059669';
+  }
+
+  function attach(form) {
+    if (form.dataset.byteforceBound === '1') return;
+    form.dataset.byteforceBound = '1';
+
+    // Defence-in-depth against native submission ever navigating anywhere —
+    // a form with no action attribute defaults to submitting to the current
+    // document's URL, which for a srcDoc preview iframe resolves to the
+    // PARENT page's own URL (the dashboard), not a blank page. Belt-and-
+    // braces alongside preventDefault() below and the iframe's sandbox
+    // (which already omits allow-forms — see WebsitePreview.jsx).
+    form.setAttribute('action', '#');
+
+    var submitBtn = form.querySelector('button[type="submit"], input[type="submit"]') || form.querySelector('button');
+    var submitting = false;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (submitting) return;
+
+      var emailEl = findField(form, ['email']);
+      var nameEl  = findField(form, ['name']) || form.querySelector('input[type="text"]');
+      var email   = emailEl ? emailEl.value.trim() : '';
+      var name    = nameEl ? nameEl.value.trim() : '';
+
+      if (!email) {
+        showMessage(form, 'Please enter a valid email address.', true);
+        return;
+      }
+
+      submitting = true;
+      var originalText = submitBtn ? submitBtn.textContent : null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+      }
+
+      fetch(BYTEFORCE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action:      'register',
+          name:        name,
+          email:       email,
+          websiteId:   BYTEFORCE_WEBSITE_ID,
+          websiteName: BYTEFORCE_WEBSITE_NAME,
+          source:      window.location.origin,
+        }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Request failed');
+          return res.json().catch(function () { return {}; });
+        })
+        .then(function () {
+          showMessage(form, "Thanks! We've received your submission.", false);
+          form.reset();
+        })
+        .catch(function () {
+          showMessage(form, 'Something went wrong. Please try again.', true);
+        })
+        .finally(function () {
+          submitting = false;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+    });
+  }
+
+  function init() {
+    var forms = document.querySelectorAll('form');
+    var bound = 0;
+    for (var i = 0; i < forms.length; i++) {
+      // One malformed form (e.g. an AI-generated quirk) shouldn't stop the
+      // rest from getting bound — each form is independent.
+      try {
+        attach(forms[i]);
+        bound++;
+      } catch (err) {
+        console.error('[byteforce-lead-form] failed to bind form', i, err);
+      }
+    }
+    // Verifiable from the browser console — confirms both that this script
+    // ran at all and how many forms it actually bound, without guessing.
+    window.__byteforceLeadForm = { ready: true, formsFound: forms.length, formsBound: bound };
+    console.log('[byteforce-lead-form] ready — found ' + forms.length + ' form(s), bound ' + bound);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
